@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+}
+
+.displayflex {
+  display: flex;
+}
+
+.nav {
+  background-color: #000000;
+}
+
+.nav ul {
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.nav li {
+  color: white;
+  text-decoration: none;
+}
+
+.nav li :hover {
+  background-color: darkslategrey;
+}
