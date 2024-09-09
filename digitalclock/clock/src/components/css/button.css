@@ -1,0 +1,9 @@
+.buttonstyle {
+  background-color: rgb(249, 19, 229);
+  border: 2px solid black;
+  width: 25%;
+  color: white;
+}
+
+.buttonstyle:hover {
+}

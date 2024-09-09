@@ -1,0 +1,18 @@
+.profile {
+  display: grid;
+
+  grid-template-columns: [first] 100px [line2] 200px [line3] 100px [col4-start];
+  grid-template-rows: [row1-start] 100px [row1-end] 100px [third-line];
+}
+
+.abilities {
+  grid-row-start: row1-start;
+  grid-row-end: third-line;
+
+  grid-column-start: first;
+  grid-column-end: line3;
+}
+
+.pfp {
+  width: 100%;
+}
