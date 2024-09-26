@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import './css/form.css'
 
 
 let nextId = 0;
