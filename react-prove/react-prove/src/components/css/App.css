@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.page {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  max-height: min-content;
+}
