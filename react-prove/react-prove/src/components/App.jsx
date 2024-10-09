@@ -12,9 +12,7 @@ function App() {
     <div className='page'>
       
       <Weather/>
-      <div className='penger'>
-        <ValutaKurs/>
-      </div>
+      <ValutaKurs/>
     </div>
     </>
   )
