@@ -34,9 +34,7 @@ export default function MyForm() {
     <ul>
         {task.map(task => (
           <li key={task.id}>
-            <input type="checkbox" />
             {task.name}{''}
-            <button onClick={() => {setTask(task.filter(a => a.id !== task.id))}}>Delete</button>
 
           </li>
         ))}
