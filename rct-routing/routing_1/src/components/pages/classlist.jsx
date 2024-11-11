@@ -12,11 +12,7 @@ export default function ClassList() {
     return (
         <div>
             <h1>ClassList</h1>
-            <Student name={elev.name} age={elev.age}></Student>
 
-            {classList.map((student) => (
-                <Student key={student.id} name={student.name} age={student.age}></Student>
-            ))}
         </div>
     )
 }

@@ -4,8 +4,8 @@ import './css/App.css'
 import Layout from './layout.jsx'
 
 import Home from './pages/home.jsx'
-import About from './pages/about.jsx'
-import Contact from './pages/contact.jsx'
+import About from './pages/About.jsx'
+import Contact from './pages/Contact.jsx'
 import ClassList from './pages/classlist.jsx'
 
 function App() {
