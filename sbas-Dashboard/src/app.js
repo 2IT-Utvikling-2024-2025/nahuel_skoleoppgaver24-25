@@ -5,6 +5,8 @@ const authRoutes = require("./v1/routes/authRoutes");
 
 const dashRoutes = require("./v1/routes/dashRoutes");
 
+const usersRoutes = require("./v1/routes/usersRoutes");
+
 const app = express();
 
 //middlewares
@@ -15,7 +17,9 @@ app.use(express.json());
 //Routes
 app.use("/v1/auth", authRoutes);
 
-app.use("/v1/dash", require("./v1/routes/dashRoutes"));
+app.use("/v1/dashboard", dashRoutes);
+
+app.use("/v1/users", usersRoutes);
 
 //Start server
 app.listen(3000, () => {
