@@ -45,15 +45,16 @@ function App() {
     return <LoginForm onLogin={handleLogin} />;
   }
 
-  // Hvis bruker er logget inn, vis Dashboard + en Logout-knapp
-  return (
+  return(
     <div>
-      <button className="btn-logout" onClick={handleLogout}>
-        Logg ut
-      </button>
-      <Dashboard token={token} role={role} />
-    </div>
-  );
+    <button className="btn-logout" onClick={handleLogout}>
+    Logg ut
+  </button>
+  <Dashboard token={token} role={role} />
+  </div>
+  )
 }
+
+
 
 export default App;

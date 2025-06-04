@@ -32,8 +32,9 @@ function LoginForm({ onLogin }) {
 
   return (
     <div className="login-container">
-      <h2>Logg inn</h2>
+      
       <form onSubmit={handleSubmit} className="login-form">
+      <h2>Logg inn</h2>
         <input
           type="text"
           placeholder="Brukernavn"

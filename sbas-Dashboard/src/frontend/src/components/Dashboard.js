@@ -65,6 +65,7 @@ function Dashboard({ token, role }) {
       setError(err.message);
     }
   };
+  
 
   return (
     <div className="dashboard-container">

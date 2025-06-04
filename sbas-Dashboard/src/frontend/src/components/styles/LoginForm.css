@@ -1,45 +1,122 @@
-/* src/frontend/src/components/styles/LoginForm.css */
-
-.login-container {
-    width: 320px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-form {
+.login-form {
+    width: 400px;
+    max-width: 90%;
+    margin: 80px auto;
+    padding: 40px 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInScale 0.6s ease;
   }
   
-  .input-field {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+  /* Legger til et subtilt gradientlag bak selve boksen */
+  .login-form::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #4f46e5, #3b82f6, #10b981);
+    transform: rotate(20deg);
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
   }
   
-  .btn {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .error {
-    color: red;
+  /* Overskrift */
+  .login-form h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8rem;
     margin-bottom: 10px;
-    font-size: 13px;
   }
   
+  /* Input-feltene */
+  .login-form input,
+  .login-form select {
+    padding: 14px 16px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 4px 4px 0 0;
+    background-color: transparent;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+  .login-form input:focus,
+  .login-form select:focus {
+    outline: none;
+    border-bottom-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+  
+  /* Label for rolle-valg (hvis du har en dropdown) */
+  .login-form label {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  /* Knapp */
+  .login-form button {
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(90deg, #4f46e5, #3b82f6);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.2s;
+  }
+  
+  .login-form button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  /* Feilmelding */
+  .login-form .error {
+    color: #e53e3e;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: -10px;
+  }
+  
+  /* Animasjon */
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsiv justering */
+  @media (max-width: 480px) {
+    .login-form {
+      padding: 30px 20px;
+      width: 90%;
+    }
+  
+    .login-form h2 {
+      font-size: 1.6rem;
+    }
+  
+    .login-form input,
+    .login-form select {
+      padding: 12px 14px;
+    }
+  
+    .login-form button {
+      padding: 12px;
+    }
+  }
