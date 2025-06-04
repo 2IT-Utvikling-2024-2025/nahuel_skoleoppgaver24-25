@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles/LoginForm.css";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -16,35 +17,43 @@ function LoginForm({ onLogin }) {
         body: JSON.stringify({ username, password }),
       });
 
-      if (!response.ok) throw new Error("Feil brukernavn eller passord");
-
       const data = await response.json();
-      onLogin(data.token, data.role);
+      if (!response.ok) {
+        setError(data.message || "Ukjent feil ved innlogging");
+      } else {
+        // Returner token + rolle til parent (App.js)
+        onLogin(data.token, data.role);
+      }
     } catch (err) {
-      setError(err.message);
+      console.error(err);
+      setError("Nettverksfeil. Prøv igjen.");
     }
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <div className="login-container">
       <h2>Logg inn</h2>
-      {error && <div className="error">{error}</div>}
-      <input
-        type="text"
-        placeholder="Brukernavn"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Passord"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Logg inn</button>
-    </form>
+      <form onSubmit={handleSubmit} className="login-form">
+        <input
+          type="text"
+          placeholder="Brukernavn"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+          className="input-field"
+        />
+        <input
+          type="password"
+          placeholder="Passord"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="input-field"
+        />
+        {error && <p className="error">{error}</p>}
+        <button type="submit" className="btn">Logg inn</button>
+      </form>
+    </div>
   );
 }
 

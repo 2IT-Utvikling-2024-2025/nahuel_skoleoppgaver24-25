@@ -3,8 +3,6 @@ const cors = require("cors");
 
 const authRoutes = require("./v1/routes/authRoutes");
 
-const dashRoutes = require("./v1/routes/dashRoutes");
-
 const usersRoutes = require("./v1/routes/usersRoutes");
 
 const app = express();
@@ -16,8 +14,6 @@ app.use(express.json());
 
 //Routes
 app.use("/v1/auth", authRoutes);
-
-app.use("/v1/dashboard", dashRoutes);
 
 app.use("/v1/users", usersRoutes);
 

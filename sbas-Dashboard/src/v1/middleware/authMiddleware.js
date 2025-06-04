@@ -8,15 +8,15 @@ function authenticateToken(req, res, next) {
     const token = authHeader && authHeader.split(" ")[1];
   
     if (!token) {
-      return res.sendStatus(401).json({ message: "Unauthorized" });
+      return res.sendStatus(401).json({ message: "Unauthorized: Ingen token funnet" });
     }
   
-    jwt.verify(token, SECRET_KEY, (err, user) => {
+    jwt.verify(token, SECRET_KEY, (err, decodedPayload) => {
       if (err) {
-            return res.sendStatus(403).json({ message: "Forbidden (token invalid/expired)" });
+            return res.sendStatus(403).json({ message: "Forbidden: Ugyldig eller utløpt token" });
       }
   
-      req.user = user;
+      req.user = decodedPayload;
       next();
     });
   }
@@ -24,7 +24,7 @@ function authenticateToken(req, res, next) {
 function authorizeRoles(...allowedRoles) {
     return (req, res, next) => {
         if (!req.user || !allowedRoles.includes(req.user.role)) {
-            return res.status(403).json({ message: "Forbidden" });
+            return res.status(403).json({ message: "Forbidden: Mangler rettigheter" });
         }
         next();
     }
